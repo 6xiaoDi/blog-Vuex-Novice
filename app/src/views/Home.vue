@@ -2,6 +2,9 @@
     <div>
         <h2>商品列表</h2>
 
+        <input type="text" ref="input" /><button @click="addItem">提交</button>
+        <hr>
+
         <ul class="item-list">
             <li class="head">
                 <span>名称</span>
@@ -40,7 +43,24 @@
         },
 
         created() {
+            console.log(this.$store);
+            console.log(this.$store.state);
             this.items = this.$store.state.items;
+        },
+
+        methods: {
+            addItem() {
+                let val = this.$refs.input.value;
+
+                if (val !== '') {
+                    this.$store.state.items.unshift({
+                        "id":100,
+                        "name": val,
+                        "vendor":"Apple",
+                        "price":1949900
+                    });
+                }
+            }
         }
     }
 </script>
