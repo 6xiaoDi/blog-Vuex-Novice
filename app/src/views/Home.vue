@@ -37,6 +37,10 @@
 
         filters: {
             RMB
+        },
+
+        created() {
+            this.items = this.$store.state.items;
         }
     }
 </script>
