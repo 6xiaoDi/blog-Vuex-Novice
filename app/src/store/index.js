@@ -7,6 +7,7 @@ let items = [{"id":3,"name":"Macbook Pro 15.4","vendor":"Apple","price":1949900}
 
 let store = new Vuex.Store({
     state: {
+        n: 10,
         items
     }
 });

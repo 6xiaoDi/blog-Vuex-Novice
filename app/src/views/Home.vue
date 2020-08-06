@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h2>商品列表</h2>
+        <h2>商品列表 - {{n}} - {{$store.state.n}}</h2>
 
         <input type="text" ref="input" /><button @click="addItem">提交</button>
         <hr>
@@ -33,8 +33,8 @@
 
         data() {
             return {
-                sort: 'desc',
-                items: []
+                items: [],
+                n: 0
             }
         },
 
@@ -43,9 +43,8 @@
         },
 
         created() {
-            console.log(this.$store);
-            console.log(this.$store.state);
             this.items = this.$store.state.items;
+            this.n = this.$store.state.n;
         },
 
         methods: {
