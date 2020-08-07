@@ -23,7 +23,10 @@ let store = new Vuex.Store({
 
     mutations: {
         changeN(state, payload) {
-            state.n = payload;
+            // state.n = payload;
+            setTimeout(() => {
+                state.n = payload;
+            }, 1000);
         },
 
         // mutations 中的函数不对异步代码进行处理
