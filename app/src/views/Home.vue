@@ -49,16 +49,7 @@
 
         methods: {
             addItem() {
-                let val = this.$refs.input.value;
-
-                if (val !== '') {
-                    this.$store.state.items.unshift({
-                        "id":100,
-                        "name": val,
-                        "vendor":"Apple",
-                        "price":1949900
-                    });
-                }
+                this.$store.state.n = 100;
             }
         }
     }
