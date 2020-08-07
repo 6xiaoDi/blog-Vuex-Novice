@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h2>商品列表 - {{n}} - {{$store.state.n}}</h2>
+        <h2>商品列表 - {{n}} -{{stateN}}- {{$store.state.n}}</h2>
 
         <input type="text" ref="input" /><button @click="addItem">提交</button>
         <hr>
@@ -45,7 +45,9 @@
 
         computed: mapState({
             items: 'items',
-            stateN: 'n',
+            stateN(state) {
+                return state.n * 10;
+            }
         }),
 
         methods: {
