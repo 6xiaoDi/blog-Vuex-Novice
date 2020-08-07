@@ -34,7 +34,7 @@
 
         data() {
             return {
-
+                n:''
             }
         },
 
@@ -42,15 +42,6 @@
             RMB
         },
 
-
-        // computed: {
-        //     items() {
-        //         return this.$store.state.items;
-        //     },
-        //     n() {
-        //         return this.$store.state.n;
-        //     }
-        // },
 
         computed: mapState(['items', 'n']),
 
