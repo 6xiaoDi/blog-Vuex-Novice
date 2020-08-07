@@ -53,7 +53,8 @@
                 }
             }),
             items() {
-                let rs = this.$store.getters.than500(500000); // 分为单位，实际5000元
+                // let rs = this.$store.getters.than500(500000); // 分为单位，实际5000元
+                let rs = this.$store.state.items;
                 console.log(rs);
                 return rs;
             }
@@ -71,6 +72,11 @@
                     })
                 }
             }
+        },
+
+        async created() {
+            let rs = await apis.getItems()
+            this.$store.commit('updateItems', rs.data);
         }
     }
 </script>
