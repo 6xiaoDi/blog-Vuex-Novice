@@ -54,7 +54,9 @@
 
         methods: {
             addItem() {
-                this.$store.state.n = 100;
+                // 不能直接修改仓库的数据
+                // this.$store.state.n = 100;
+                this.$store.commit('changeN', 100);
             }
         }
     }
