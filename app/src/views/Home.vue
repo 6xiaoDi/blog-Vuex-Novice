@@ -33,8 +33,8 @@
 
         data() {
             return {
-                items: [],
-                n: 0
+                // items: [],
+                // n: 0
             }
         },
 
@@ -42,9 +42,14 @@
             RMB
         },
 
-        created() {
-            this.items = this.$store.state.items;
-            this.n = this.$store.state.n;
+
+        computed: {
+            items() {
+                return this.$store.state.items;
+            },
+            n() {
+                return this.$store.state.n;
+            }
         },
 
         methods: {
