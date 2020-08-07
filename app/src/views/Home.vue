@@ -60,11 +60,7 @@
                 let val = this.$refs.input.value;
 
                 if (val !== '') {
-                    this.$store.commit('addItem', {
-                        "name": val,
-                        "vendor":"Apple",
-                        "price":1949900
-                    })
+                    this.$store.commit('addItem',{'name':val});
                 }
             }
         },

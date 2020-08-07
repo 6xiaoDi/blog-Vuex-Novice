@@ -23,7 +23,11 @@ let store = new Vuex.Store({
             state.n = payload;
         },
 
-        addItem(state, payload) {
+        async addItem(state, payload) {
+            let rs = await apis.postItem(payload);
+            if (!rs.data.code) {
+                state.items.unshift(rs.data.data);
+            }
         },
 
         async updateItems(state, payload) {

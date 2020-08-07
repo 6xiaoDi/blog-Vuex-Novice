@@ -20,3 +20,12 @@ export async function getItem(id) {
 
     return rs;
 }
+
+export async function postItem(data) {
+    let rs = await axios({
+        method: 'post',
+        url: URLS.ADD_ITEM,
+        data
+    });
+    return rs;
+}
