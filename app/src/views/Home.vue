@@ -34,7 +34,7 @@
 
         data() {
             return {
-                n:''
+                n: 200
             }
         },
 
@@ -43,7 +43,10 @@
         },
 
 
-        computed: mapState(['items', 'n']),
+        computed: mapState({
+            items: 'items',
+            stateN: 'n',
+        }),
 
         methods: {
             addItem() {
