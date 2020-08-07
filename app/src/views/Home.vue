@@ -48,11 +48,14 @@
                 return 'CSDN';
             },
             ...mapState({
-                items: 'items',
                 stateN(state) {
                     return state.n * 10;
                 }
-            })
+            }),
+            items() {
+                // console.log(this.$store.getters.than500);
+                return this.$store.getters.than500;
+            }
         },
 
         methods: {

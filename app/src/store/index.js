@@ -26,6 +26,13 @@ let store = new Vuex.Store({
                 ...payload
             }, ...state.items];
         }
+    },
+
+    getters: {
+        // 派生数据
+        than500(state) {
+            return state.items.filter( item => item.price > 50000 );
+        }
     }
 });
 
