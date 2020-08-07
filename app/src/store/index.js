@@ -31,7 +31,9 @@ let store = new Vuex.Store({
     getters: {
         // 派生数据
         than500(state) {
-            return state.items.filter( item => item.price > 50000 );
+            return function(price = 0) {
+                return state.items.filter( item => item.price > price );
+            }
         }
     }
 });

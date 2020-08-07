@@ -53,8 +53,9 @@
                 }
             }),
             items() {
-                // console.log(this.$store.getters.than500);
-                return this.$store.getters.than500;
+                let rs = this.$store.getters.than500(500000); // 分为单位，实际5000元
+                console.log(rs);
+                return rs;
             }
         },
 
