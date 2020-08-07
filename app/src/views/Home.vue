@@ -56,11 +56,13 @@
         },
 
         methods: {
-            addItem() {
+            async addItem() {
+
                 let val = this.$refs.input.value;
 
                 if (val !== '') {
-                    this.$store.commit('addItem',{'name':val});
+                    let rs = await this.$store.commit('addItem',{'name':val});
+                    console.log(rs);
                 }
             }
         },

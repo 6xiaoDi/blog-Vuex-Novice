@@ -47,7 +47,7 @@ router.post('/add', async ctx => {
     // console.log(ctx.request.body);
     let {name} = ctx.request.body;
 
-    if (name === '') {
+    if (name.trim() === '') {
         ctx.body = {
             code: 1,
             message: '商品名称不能为空'
