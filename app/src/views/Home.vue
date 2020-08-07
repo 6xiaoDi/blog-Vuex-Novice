@@ -75,8 +75,9 @@
                     // this.message = '添加失败';
                 }
             },
-            getData() {
-                this.$store.commit('changeN', 11);
+            async getData() {
+                let rs = await this.$store.dispatch('changeAsyncN', 11);
+                console.log(rs);
                 console.log(this.$store.state.n);
             }
         },

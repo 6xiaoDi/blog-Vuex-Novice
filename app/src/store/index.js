@@ -23,10 +23,10 @@ let store = new Vuex.Store({
 
     mutations: {
         changeN(state, payload) {
-            // state.n = payload;
-            setTimeout(() => {
-                state.n = payload;
-            }, 1000);
+            state.n = payload;
+            // setTimeout(() => {
+            //     state.n = payload;
+            // }, 1000);
         },
 
         // mutations 中的函数不对异步代码进行处理
@@ -49,6 +49,15 @@ let store = new Vuex.Store({
                 store.commit('addItem', rs.data.data);
             }
             return rs;
+        },
+
+        async changeAsyncN(store, payload) {
+            return new Promise( (resolve) => {
+                setTimeout(() => {
+                    store.commit('changeN', payload);
+                    resolve('changeAsyncN'+payload);
+                }, 1000);
+            } );
         }
     }
 });
