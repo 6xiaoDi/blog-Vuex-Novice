@@ -33,8 +33,7 @@
 
         data() {
             return {
-                // items: [],
-                // n: 0
+
             }
         },
 
@@ -54,9 +53,15 @@
 
         methods: {
             addItem() {
-                // 不能直接修改仓库的数据
-                // this.$store.state.n = 100;
-                this.$store.commit('changeN', 100);
+                let val = this.$refs.input.value;
+
+                if (val !== '') {
+                    this.$store.commit('addItem', {
+                        "name": val,
+                        "vendor":"Apple",
+                        "price":1949900
+                    })
+                }
             }
         }
     }
