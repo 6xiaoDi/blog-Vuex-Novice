@@ -6,6 +6,8 @@
         <span v-show="message">{{message}}</span>
         <hr>
 
+        <button @click="getData">按钮</button>
+
         <ul class="item-list">
             <li class="head">
                 <span>名称</span>
@@ -72,6 +74,10 @@
                     }
                     // this.message = '添加失败';
                 }
+            },
+            getData() {
+                this.$store.commit('changeN', 11);
+                console.log(this.$store.state.n);
             }
         },
 
