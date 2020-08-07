@@ -48,16 +48,11 @@
                 return 'CSDN';
             },
             ...mapState({
+                items:'items',
                 stateN(state) {
                     return state.n * 10;
                 }
-            }),
-            items() {
-                // let rs = this.$store.getters.than500(500000); // 分为单位，实际5000元
-                let rs = this.$store.state.items;
-                console.log(rs);
-                return rs;
-            }
+            })
         },
 
         methods: {
@@ -75,8 +70,7 @@
         },
 
         async created() {
-            let rs = await apis.getItems()
-            this.$store.commit('updateItems', rs.data);
+            this.$store.commit('updateItems', {sort: 'desc'});
         }
     }
 </script>

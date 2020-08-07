@@ -1,5 +1,6 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
+import * as apis from '@/apis';
 
 Vue.use(Vuex);
 
@@ -23,14 +24,11 @@ let store = new Vuex.Store({
         },
 
         addItem(state, payload) {
-            // state.items = [{
-            //     id: ++maxId,
-            //     ...payload
-            // }, ...state.items];
         },
 
         async updateItems(state, payload) {
-            state.items = payload;
+            let rs = await apis.getItems(payload);
+            state.items = rs.data;
         },
     },
 
