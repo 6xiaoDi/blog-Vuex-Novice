@@ -1,8 +1,9 @@
 <template>
     <div>
-        <h2>商品列表 - {{val}} - {{n}} - {{stateN}} - {{$store.state.n}}</h2>
+        <h2>商品列表 - {{n}} - {{stateN}} - {{$store.state.n}}</h2>
 
         <input type="text" ref="input" /><button @click="addItem">提交</button>
+        <span v-show="message">{{message}}</span>
         <hr>
 
         <ul class="item-list">
@@ -34,7 +35,8 @@
 
         data() {
             return {
-                n: 200
+                n: 200,
+                message: ''
             }
         },
 
@@ -44,9 +46,6 @@
 
 
         computed:{
-            val() {
-                return 'CSDN';
-            },
             ...mapState({
                 items:'items',
                 stateN(state) {
@@ -61,8 +60,17 @@
                 let val = this.$refs.input.value;
 
                 if (val !== '') {
-                    let rs = await this.$store.commit('addItem',{'name':val});
-                    console.log(rs);
+                    // 提交是有可能会失败的
+                    let rs = await this.$store.dispatch('addItem', {
+                        "name": val
+                    });
+                    // console.log(rs);
+                    if (rs.data.code) {
+                        this.message = rs.data.message;
+                    } else {
+                        this.message = '提交成功';
+                    }
+                    // this.message = '添加失败';
                 }
             }
         },
